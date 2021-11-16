@@ -79,8 +79,6 @@ imga{
                     </div>
                 </w-card>
             </div>
-
-            <!-- <img :src="require('@/assets/book_data/medium/'+o.img)" alt=""> -->
         </w-card>
     </div>
 </template>
@@ -91,7 +89,7 @@ import taxonomy_data from '../assets/book_data/taxonomy_data.json'
 import user_data from '../assets/book_data/user_data.json'
 
 export default {
-  name: 'MothBook',
+  name: 'AllSpecies',
   data() {
       return {
           book_data: book_data,
@@ -176,3 +174,4 @@ export default {
 }
 </script>
 
+a
