@@ -1,31 +1,3 @@
-<template>
-    <w-app>
-        <w-toolbar shadow fixed>
-            <div class="title2">Sikkim-Darjeeling Moths</div>
-            <div class="spacer"></div>
-            <span class="ml2">Item 1</span>
-            <span class="ml2">Item 2</span>
-            <span class="ml2">Item 3</span>
-        </w-toolbar>
-        <MothBook />
-
-    </w-app>
-</template>
-
-<script>
-// import Vue from 'vue'
-import MothBook from './components/MothBook.vue'
-
-// Vue.use(KeenUI);
-
-export default {
-  name: 'App',
-  components: {
-    MothBook
-  }
-}
-</script>
-
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -35,4 +7,46 @@ export default {
   color: #2c3e50;
   /* margin-top: 60px; */
 }
+.menu-link:hover{
+    cursor: pointer;
+    background: #ccc;
+}
 </style>
+
+<template>
+    <w-app>
+        <w-toolbar shadow fixed>
+            <div class="title2">Sikkim-Darjeeling Moths</div>
+            <div class="spacer"></div>
+            <span class="ml2 pa2 menu-link" @click="menuSelect(1)">About</span>
+            <span class="ml2 pa2 menu-link" @click="menuSelect(2)">All Species</span>
+            <!-- <span class="ml2 pa2 menu-link" @click="menuSelect(3)">Taxonomic Hierrachy</span> -->
+        </w-toolbar>
+        <AllSpecies v-if="selectedPage == 2"/>
+        <!-- <MothBook v-else-if="selectedPage == 3"/> -->
+
+    </w-app>
+</template>
+
+<script>
+// import Vue from 'vue'
+// import MothBook from './components/MothBook.vue'
+import AllSpecies from './components/AllSpecies.vue'
+
+// Vue.use(KeenUI);
+
+export default {
+    name: 'App',
+    components: {AllSpecies },
+    data() {
+        return {
+            selectedPage:2
+        }
+    },
+    methods: {
+        menuSelect(p){
+            this.selectedPage = p
+        }
+    }
+}
+</script>
